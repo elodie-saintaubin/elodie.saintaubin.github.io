@@ -1,0 +1,100 @@
+body {
+  background-color: #040404;
+  font-family: 'Courier New', monospace;
+  color: white;
+}
+
+.long-rectangle {
+  position: relative;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  margin-top: 50px;
+  margin-left: 40px;
+  padding: 20px;
+  height: 500px;
+}
+
+.long-rectangle::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  border-top: 17px solid #f2f2f2;
+  border-right: 17px solid transparent;
+}
+
+
+.centered-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 60vh;
+  width: 70%;
+  margin-right: 30px;
+  margin-top: 70px;
+}
+
+.white-text {
+  color: white;
+  margin-bottom: 115px;
+}
+
+.slow-appear {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slow-appear-animation 2s ease forwards;
+}
+
+@keyframes slow-appear-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.central {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: justify;
+}
+
+
+.opaque-rectangle {
+  width: 100%;
+  height: 250px;
+  background-color: rgb(156, 156, 156);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  color : black;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.opaque-rectangle p{
+    margin: 5px 38px;
+}
+
+.opaque-rectangle p::first-letter {
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+.carre-meteo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
