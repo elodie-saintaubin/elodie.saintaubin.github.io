@@ -9,13 +9,16 @@ import Apod from './APOD/apod'
 function App() {
   return (
    <div>
+    <>
+
     <Routes>
-      <Route path="/" element={<Home/> }></Route>
+      <Route path="/la-meteore" element={<Home/> }></Route>
       <Route path="/planets" element={<Planets/> }></Route>
       <Route path="/planet/:id" element={<Planet />} />
       <Route path="/game" element={<Game />} />
       <Route path="/apod" element={<Apod />} />
     </Routes> 
+    </>
    </div>
   );
 }
