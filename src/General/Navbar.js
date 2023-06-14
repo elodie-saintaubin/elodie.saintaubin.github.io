@@ -16,7 +16,7 @@ function Navbar() {
         <div>
         <ul>
           <li>
-            <Link to="/">Accueil</Link>
+            <Link to="/la-meteore">Accueil</Link>
           </li>
           <li>
             <Link to="/planets">Planètes</Link>
