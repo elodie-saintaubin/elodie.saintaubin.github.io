@@ -72,13 +72,14 @@ body {
 .opaque-rectangle {
   width: 100%;
   height: 250px;
-  background-color: rgb(156, 156, 156);
+  background: linear-gradient(to bottom, #ff00ccb2, #e2642e);
   border-radius: 13px;
   display: flex;
   align-items: center;
-  color : black;
+  color : white;
   padding: 10px;
   font-size: 14px;
+  
 }
 
 .opaque-rectangle p{
@@ -98,4 +99,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.carre-meteo:hover {
+  background-color: white;
+  border-radius: 15px;
+  opacity: 0.5;
+  color: #040404;
 }

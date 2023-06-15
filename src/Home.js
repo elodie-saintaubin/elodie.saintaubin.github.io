@@ -8,6 +8,8 @@ import fire from "./images/fire_weather.gif"
 import normal from "./images/normal_weather.gif"
 import ice from "./images/ice_weather.gif"
 import tornado from "./images/tornado_weather.gif"
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString();
 
 const planetes = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'];
 const staticPlanetData = [
@@ -120,12 +122,12 @@ function Home() {
             <h2 className="white-text slow-appear">
               {solarSystemInfo[randomIndex]}
             </h2>
-            <h4>Météo moyenne des planètes</h4>
+            <h4>Météo du {formattedDate}</h4>
             <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
             {staticPlanetData.map((planet) => (
                 <div className='carre-meteo' key={planet.planet}>
                   <img className="logo" src={planet.image} alt={`${planet.planet} weather`} />
-                  <a href={`/planet/${planet.planet}`}><p>{planet.planet}</p></a>
+                  <p>{planet.planet}</p>
                   <p style={{ display: 'flex' }}><strong>Température:</strong> {planet.temperature}</p>
                   <hr />
                 </div>
@@ -143,17 +145,17 @@ function Home() {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: white; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #e2642e; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #9b4520; 
 }`}
 </style>
       </div>
