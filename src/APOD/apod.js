@@ -29,8 +29,11 @@ const Apod = () => {
       {apodData ? (
       <div class="container">
       <h2>Image of the day from the NASA website : {apodData.title}</h2>
-      <img src={apodData.url} alt={apodData.title} />
-      <p>{apodData.explanation}</p>
+      <div>
+      <img style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} />
+      <div><p>{apodData.explanation}</p></div>
+      </div>
+     
     </div>
     
       ) : (

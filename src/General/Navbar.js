@@ -25,7 +25,7 @@ function Navbar() {
             <Link to="/apod">Picture of the day</Link>
           </li>
           <li>
-            <Link to="/game">A little game</Link>
+            <Link to="/game">A little game ?</Link>
           </li>
 
         </ul>

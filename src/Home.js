@@ -110,11 +110,10 @@ function Home() {
     <>
       <Navbar />
       <div className='central'>
-        <div className="long-rectangle" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black" }}>
-        <p>Bienvenue sur notre site dédié au système solaire, un voyage fascinant à travers les merveilles de l'espace! <br/> <br/> 
+        <div className="long-rectangle" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black", padding:"10px" }}>
+        <p>Bienvenue sur notre site dédié à l'astronomie, un voyage fascinant à travers les merveilles de l'espace! <br/> <br/> 
           Notre site offre une exploration approfondie des planètes, des lunes, des étoiles et des autres corps célestes qui composent notre système solaire.<br/><br/>  
-          Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. 
-          Apprenez des faits intéressants sur la composition, la taille, la température et les caractéristiques uniques de chaque planète. <br/> </p>
+          Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. </p>
         </div>
 {showText && (
           <div className="centered-text">
@@ -136,6 +135,27 @@ function Home() {
 
           </div>
         )}
+        <style>{`
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}`}
+</style>
       </div>
     </>
   );

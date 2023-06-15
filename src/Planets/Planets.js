@@ -70,7 +70,7 @@ function Planets() {
       <Navbar />
 
       <div className="container">
-        <h1 className="title">Liste des planètes du système solaire</h1>
+        <h1 className="title">Les planètes du système solaire</h1>
 
         <div className="planet-container">
          
