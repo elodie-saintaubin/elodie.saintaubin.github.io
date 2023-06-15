@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
@@ -6,6 +6,15 @@ import './Navbar.css';
 import icon from '../Planets/meteore.png';
 
 function Navbar() {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleMenu = () => {
+    setIsActive(!isActive);
+  };
+
+  const closeMenu = () => {
+    setIsActive(false);
+  };
   return (
     <div>
       <nav className="navbar">
@@ -13,23 +22,26 @@ function Navbar() {
           <img src={icon} alt="Icon" />
           <h1>Meteo(re)</h1>
         </div>
-        <div>
-        <ul>
-          <li>
+  
+        <div className="hamburger" onClick={toggleMenu}>
+          <span className={`bar ${isActive ? 'active' : ''}`}></span>
+          <span className={`bar ${isActive ? 'active' : ''}`}></span>
+          <span className={`bar ${isActive ? 'active' : ''}`}></span>
+        </div>
+        <ul className={`nav-menu ${isActive ? 'active' : ''}`}>
+          <li className="nav-link" onClick={closeMenu}>
             <Link to="/la-meteore">Accueil</Link>
           </li>
-          <li>
+          <li className="nav-link" onClick={closeMenu}>
             <Link to="/planets">Planètes</Link>
           </li>
-          <li>
+          <li className="nav-link" onClick={closeMenu}>
             <Link to="/apod">Picture of the day</Link>
           </li>
-          <li>
+          <li className="nav-link" onClick={closeMenu}>
             <Link to="/game">A little game ?</Link>
           </li>
-
         </ul>
-        </div>
       </nav>
     </div>
   );

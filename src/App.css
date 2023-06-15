@@ -171,5 +171,17 @@ body {
   .opaque-rectangle p {
     margin: 5px;
   }
+
+  .centered-text{
+    display: flex;
+    justify-content: center;
+  }
+
+  .opaque-rectangle{
+    height: 400px;
+  }
+  .central {
+    height: 5vh;
+  }
 }
 

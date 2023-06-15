@@ -113,52 +113,51 @@ function Home() {
       <Navbar />
       <div className='central'>
         <div className="long-rectangle message-box" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black", padding:"10px" }}>
-        <p>Bienvenue sur notre site météo de l'espace !  <br/> <br/> 
+        <p>Bienvenue sur le site météo de l'espace !  <br/> <br/> 
           Ce site offre une exploration approfondie des planètes, des étoiles et des autres corps célestes qui composent notre système solaire.<br/><br/>  
           Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. <br/>
          <br/> D'autres choses sont à venir ;) </p>
         </div>
-{showText && (
-          <div className="centered-text">
-            <h2 className="white-text slow-appear">
-              {solarSystemInfo[randomIndex]}
-            </h2>
-            <h3 className="titre-meteo">Météo du {formattedDate}</h3>
-            <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
-            {staticPlanetData.map((planet) => (
-                <div className='carre-meteo' key={planet.planet}>
-                  <img className="logo" src={planet.image} alt={`${planet.planet} weather`} />
-                  <p>{planet.planet}</p>
-                  <p style={{ display: 'flex' }}><strong>Température:</strong> {planet.temperature}</p>
-                  <hr />
-                </div>
-  ))}
-</div>
 
-
-          </div>
+        {showText && (
+        <div className="centered-text">
+          <h2 className="white-text slow-appear">
+            {solarSystemInfo[randomIndex]}
+          </h2>
+          <h3 className="titre-meteo">Météo du {formattedDate}</h3>
+          <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
+          {staticPlanetData.map((planet) => (
+              <div className='carre-meteo' key={planet.planet}>
+                <img className="logo" src={planet.image} alt={`${planet.planet} weather`} />
+                <p>{planet.planet}</p>
+                <p style={{ display: 'flex' }}><strong>Température:</strong> {planet.temperature}</p>
+                <hr />
+              </div>
+            ))}
+        </div>
+      </div>
         )}
         <style>{`
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+            /* width */
+            ::-webkit-scrollbar {
+              width: 10px;
+            }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: white; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #e2642e; 
-}
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: white; 
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #e2642e; 
+            }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #9b4520; 
-}`}
-</style>
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: #9b4520; 
+            }`}
+          </style>
       </div>
     </>
   );

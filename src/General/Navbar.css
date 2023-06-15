@@ -79,3 +79,83 @@
   display: flex;
   justify-content: flex-end;
 }
+
+/*Responsive*/
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+}
+
+
+@media screen and (max-width: 576px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .navbar-icon {
+    margin-left: 7px;
+  }
+
+
+  .navbar ul {
+    list-style-type: none;
+    display: none; /* Ajout de cette ligne pour masquer la liste par défaut */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar.active ul {
+    display: flex; /* Afficher la liste lorsqu'une classe "active" est ajoutée à la navbar */
+    flex-direction: column; /* Afficher les éléments de la liste en colonne */
+    align-items: center; /* Centrer verticalement les éléments de la liste */
+  }
+  
+  .navbar.active li {
+    margin-bottom: 20px; /* Ajouter une marge entre les éléments de la liste */
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    margin-right: 65px;
+  }
+
+  .hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin-bottom: 6px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .centered-text {
+    margin-left: 15px;
+  }
+
+}
