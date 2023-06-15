@@ -1,6 +1,6 @@
 body {
   background-color: #040404;
-  font-family: 'Courier New', monospace;
+  font-family: 'Helvetica Neue', monospace;
   color: white;
 }
 
@@ -27,7 +27,27 @@ body {
   
 }
 
+.message-box {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 20px;
+  width: 300px;
+  position: relative;
+  color: black;
+  padding: 10px;
+  animation: slide-up 0.5s ease-out;
+}
 
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .centered-text {
   display: flex;
   align-items: center;
@@ -60,6 +80,25 @@ body {
     transform: translateY(0);
   }
 }
+.titre-meteo {
+  background: linear-gradient(45deg, #ff00cc, #e2642e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: shine 2s linear infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+
 
 .central {
   display: flex;

@@ -112,17 +112,18 @@ function Home() {
     <>
       <Navbar />
       <div className='central'>
-        <div className="long-rectangle" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black", padding:"10px" }}>
-        <p>Bienvenue sur notre site dédié à l'astronomie, un voyage fascinant à travers les merveilles de l'espace! <br/> <br/> 
-          Notre site offre une exploration approfondie des planètes, des lunes, des étoiles et des autres corps célestes qui composent notre système solaire.<br/><br/>  
-          Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. </p>
+        <div className="long-rectangle message-box" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black", padding:"10px" }}>
+        <p>Bienvenue sur notre site météo de l'espace !  <br/> <br/> 
+          Ce site offre une exploration approfondie des planètes, des étoiles et des autres corps célestes qui composent notre système solaire.<br/><br/>  
+          Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. <br/>
+         <br/> D'autres choses sont à venir ;) </p>
         </div>
 {showText && (
           <div className="centered-text">
             <h2 className="white-text slow-appear">
               {solarSystemInfo[randomIndex]}
             </h2>
-            <h4>Météo du {formattedDate}</h4>
+            <h3 className="titre-meteo">Météo du {formattedDate}</h3>
             <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
             {staticPlanetData.map((planet) => (
                 <div className='carre-meteo' key={planet.planet}>
