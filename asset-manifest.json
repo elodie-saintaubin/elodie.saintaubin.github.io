@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/la-meteore/static/css/main.68df7f0b.css",
-    "main.js": "/la-meteore/static/js/main.50c91998.js",
+    "main.css": "/la-meteore/static/css/main.99e9813f.css",
+    "main.js": "/la-meteore/static/js/main.2ff29060.js",
     "static/js/787.d1fba59b.chunk.js": "/la-meteore/static/js/787.d1fba59b.chunk.js",
     "static/media/solar_system_rotating.gif": "/la-meteore/static/media/solar_system_rotating.08d18d611e489faf28cf.gif",
     "static/media/asteroid2.png": "/la-meteore/static/media/asteroid2.3b5c9b7cb7280b346498.png",
@@ -20,12 +20,12 @@
     "static/media/neptune.jpg": "/la-meteore/static/media/neptune.85f92293e85423fca7ed.jpg",
     "static/media/jupiter.jpg": "/la-meteore/static/media/jupiter.1756969c5a769ba26295.jpg",
     "index.html": "/la-meteore/index.html",
-    "main.68df7f0b.css.map": "/la-meteore/static/css/main.68df7f0b.css.map",
-    "main.50c91998.js.map": "/la-meteore/static/js/main.50c91998.js.map",
+    "main.99e9813f.css.map": "/la-meteore/static/css/main.99e9813f.css.map",
+    "main.2ff29060.js.map": "/la-meteore/static/js/main.2ff29060.js.map",
     "787.d1fba59b.chunk.js.map": "/la-meteore/static/js/787.d1fba59b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68df7f0b.css",
-    "static/js/main.50c91998.js"
+    "static/css/main.99e9813f.css",
+    "static/js/main.2ff29060.js"
   ]
 }
