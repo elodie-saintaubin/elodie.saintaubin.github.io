@@ -147,3 +147,29 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
+
+/*Petits écrans*/
+@media screen and (max-width: 576px) {
+  .message-box,
+  .long-rectangle {
+    width: 100%;
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .central {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .opaque-rectangle {
+    height: auto;
+    padding: 20px;
+  }
+  
+  .opaque-rectangle p {
+    margin: 5px;
+  }
+}
+
