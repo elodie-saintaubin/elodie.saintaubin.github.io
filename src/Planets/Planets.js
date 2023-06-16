@@ -137,7 +137,7 @@ function Planets() {
  </div>
  </div>
 
- <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
+ <div className='mobile-view-planets' style={{ marginTop: '50px', display: 'flex', justifyContent: 'center' }}>
  <div className="text-container">
           <h1>Déplacement des planètes du système solaire</h1>
           <p>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../General/Navbar';
+import './Planet.css'
 
 import mercury from './planets_img/mercury.jpg';
 import venus from './planets_img/venus.jpg';
@@ -59,8 +60,8 @@ function Planet() {
 
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ flex: '0 0 auto', marginRight: '20px' }}>
+          <div className="planet-mobile" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="planet-img" style={{ flex: '0 0 auto', marginRight: '20px' }}>
               <img src={planetImage} alt={planetData.name} style={{ width: '200px' }} />
             </div>
             <div style={{ flex: '1 1 auto' }}>

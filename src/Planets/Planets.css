@@ -85,3 +85,25 @@ p {
   line-height: 1.5;
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 500px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .planet-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+  }
+  .mobile-view-planets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}

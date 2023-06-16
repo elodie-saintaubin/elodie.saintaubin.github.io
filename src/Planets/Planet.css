@@ -1,0 +1,10 @@
+@media screen and (max-width: 500px) {
+    .planet-mobile {
+        display: flex;
+        flex-direction: column;
+    }
+    .planet-img {
+        margin-bottom: 10px;
+    }
+
+}

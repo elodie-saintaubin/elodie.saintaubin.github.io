@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../General/Navbar';
+import './apod.css'
 
 const Apod = () => {
   const [apodData, setApodData] = useState(null);
@@ -30,7 +31,7 @@ const Apod = () => {
       <div class="container">
       <h2>Image of the day from the NASA website : {apodData.title}</h2>
       <div>
-      <img style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} />
+      <img className="apod-pic" style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} />
       <div><p>{apodData.explanation}</p></div>
       </div>
      
