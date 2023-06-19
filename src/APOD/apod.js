@@ -31,7 +31,7 @@ const Apod = () => {
       <div class="container">
       <h2>Image of the day from the NASA website : {apodData.title}</h2>
       <div>
-      <img className="apod-pic" style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} />
+      <div className='image-container'><img className="apod-pic" style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} /></div>
       <div><p>{apodData.explanation}</p></div>
       </div>
      
