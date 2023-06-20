@@ -15,7 +15,15 @@ function Game() {
   const [obstacles, setObstacles] = useState([]);
   const [points, setPoints] = useState(0);
   const [isCollided, setIsCollided] = useState(false);
+  const [lastScore, setLastScore] = useState(0);
 
+  useEffect(() => {
+    const lastScore = localStorage.getItem('lastScore');
+    if (lastScore) {
+      setLastScore(parseInt(lastScore) || 0);
+    }
+  }, []);
+  
   useEffect(() => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
@@ -54,6 +62,7 @@ function Game() {
       const newObstacle = {
         ...generateRandomPosition(),
         image: asteroidImages[Math.floor(Math.random() * asteroidImages.length)],
+        passed: false, // Added missing 'passed' property
       };
 
       setObstacles((prevObstacles) => {
@@ -83,6 +92,7 @@ function Game() {
   };
 
   const handleRestart = () => {
+    localStorage.setItem('lastScore', points);
     setPoints(0);
     setIsCollided(false);
   };
@@ -139,26 +149,32 @@ function Game() {
       <div className="game-container">
         {isCollided ? (
           <div className="game-over">
-            <img src={gameOverImage} alt="Game Over" />
+              <div className="game-over">
+                <div className="lastscore">
+                  <h1 style={{ fontSize: "30px", color: "yellow" }}>Score: {lastScore}</h1>
+                </div>
+                <img src={gameOverImage} alt="Game Over" />
+              </div>
+
             <img
-  style={{
-    width: '90px',
-    height: '90px',
-    marginTop: '310px',
-    animationName: 'spin',
-    animationDuration: '5000ms',
-    animationIterationCount: 'infinite',
-    animationTimingFunction: 'linear',
-    transition: 'transform 0.3s ease',
-  }}
-  className="restart-button"
-  src={restartButtonImage}
-  alt="Restart"
-  onClick={handleRestart}
-  onMouseEnter={(e) => e.target.style.transform = 'scale(1.2)'}
-  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-/>
-       </div>
+              style={{
+                width: '70px',
+                height: '70px',
+                marginTop: '290px',
+                animationName: 'spin',
+                animationDuration: '5000ms',
+                animationIterationCount: 'infinite',
+                animationTimingFunction: 'linear',
+                transition: 'transform 0.3s ease',
+              }}
+              className="restart-button"
+              src={restartButtonImage}
+              alt="Restart"
+              onClick={handleRestart}
+              onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
+              onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
+            />
+          </div>
         ) : (
           <>
             <div className="rocket" style={{ left: rocketPosition.x, top: rocketPosition.y }}>
@@ -175,7 +191,6 @@ function Game() {
           </>
         )}
       </div>
-
 
       <style>
         {`
@@ -196,7 +211,7 @@ function Game() {
           animation-name: spin;
           animation-duration: 5000ms;
           animation-iteration-count: infinite;
-          animation-timing-function: linear; 
+          animation-timing-function: linear;
         }
 
         @keyframes spin {

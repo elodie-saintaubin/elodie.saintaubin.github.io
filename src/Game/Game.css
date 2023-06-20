@@ -48,6 +48,23 @@
     width: 500px;
   }
 
+.score-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lastscore {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  font-size: large;
+}
+
+
   .restart-button img {
     width: '90px';
     height: '90px'; 
@@ -71,4 +88,6 @@
       transform: rotate(360deg);
     }
   }
+
+  
   
