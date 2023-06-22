@@ -5,6 +5,7 @@ import './apod.css';
 
 const Apod = () => {
   const [apodData, setApodData] = useState(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const fetchApodData = async () => {
@@ -24,22 +25,27 @@ const Apod = () => {
     fetchApodData();
   }, []);
 
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
   return (
     <div>
       <Navbar />
       {apodData ? (
         <div className="container">
           <h2>Image of the day from the NASA website: {apodData.title}</h2>
-          <div className="content">
+          <div className={`content ${isFullscreen ? 'fullscreen' : ''}`}>
             <div className="image-container">
               <img
-                className="apod-pic"
+                className={`apod-pic ${isFullscreen ? 'fullscreen' : ''}`}
                 src={apodData.url}
                 alt={apodData.title}
+                onClick={toggleFullscreen}
               />
             </div>
             <div>
-              <p>{apodData.explanation}</p>
+              <p className={`${isFullscreen ? 'text-en-fullscreen' : ''}`}>{apodData.explanation}</p>
             </div>
           </div>
         </div>
@@ -55,17 +61,61 @@ const Apod = () => {
           max-width: 800px;
         }
 
+        .apod-pic {
+          width: 500px;
+          height: 500px;
+          margin-right: 50px;
+          margin-top: 25px;
+        }
+
+        .fullscreen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+        }
+
+        .fullscreen .apod-pic {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+
+        .text-en-fullscreen {
+          display: none;
+        }
+
         @media (max-width: 600px) {
           /* Styles for mobile */
           .container {
-            max-width: 420px;
+            max-width: 400px;
           }
 
           .apod-pic {
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             margin-right: 0;
             margin-bottom: 10px;
+   
+          }
+
+          .fullscreen .apod-pic {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 50%;
+          }
+
+          .text-en-fullscreen {
+            display: none;
           }
         }
       `}
