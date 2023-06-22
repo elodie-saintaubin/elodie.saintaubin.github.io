@@ -10,14 +10,13 @@ function App() {
   return (
    <div>
     <>
-
-    <Routes>
-      <Route path="/la-meteore" element={<Home/> }></Route>
-      <Route path="/planets" element={<Planets/> }></Route>
-      <Route path="/planet/:id" element={<Planet />} />
-      <Route path="/game" element={<Game />} />
-      <Route path="/apod" element={<Apod />} />
-    </Routes> 
+      <Routes>
+        <Route path="/la-meteore" element={<Home/> }></Route>
+        <Route path="/planets" element={<Planets/> }></Route>
+        <Route path="/planet/:id" element={<Planet />} />
+        <Route path="/game" element={<Game />} />
+        <Route path="/apod" element={<Apod />} />
+      </Routes> 
     </>
    </div>
   );

@@ -1,11 +1,10 @@
 .game-container {
-  width: 100%; /* Ajustez cette valeur selon la taille souhaitée */
+  width: 600px;
   height: 600px;
-  /*margin-left: auto;
-  margin-right: auto;*/
   position: relative;
   overflow: hidden;
   background-image: url("../images/backgroung_game.jpg");
+  margin: 0 auto;
   }
   
   .rocket {

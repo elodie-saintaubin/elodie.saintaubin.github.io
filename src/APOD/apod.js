@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../General/Navbar';
-import './apod.css'
+import './apod.css';
 
 const Apod = () => {
   const [apodData, setApodData] = useState(null);
@@ -26,20 +26,50 @@ const Apod = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       {apodData ? (
-      <div class="container">
-      <h2>Image of the day from the NASA website : {apodData.title}</h2>
-      <div>
-      <div className='image-container'><img className="apod-pic" style={{width:"600px", height:"600px", marginRight:"50px", marginTop:"25px"}} src={apodData.url} alt={apodData.title} /></div>
-      <div><p>{apodData.explanation}</p></div>
-      </div>
-     
-    </div>
-    
+        <div className="container">
+          <h2>Image of the day from the NASA website: {apodData.title}</h2>
+          <div className="content">
+            <div className="image-container">
+              <img
+                className="apod-pic"
+                src={apodData.url}
+                alt={apodData.title}
+              />
+            </div>
+            <div>
+              <p>{apodData.explanation}</p>
+            </div>
+          </div>
+        </div>
       ) : (
         <p>Loading APOD data...</p>
       )}
+
+      <style>
+        {`
+        .container {
+          /* Styles for desktop */
+          margin: 0 auto;
+          max-width: 800px;
+        }
+
+        @media (max-width: 600px) {
+          /* Styles for mobile */
+          .container {
+            max-width: 420px;
+          }
+
+          .apod-pic {
+            width: 300px;
+            height: 300px;
+            margin-right: 0;
+            margin-bottom: 10px;
+          }
+        }
+      `}
+      </style>
     </div>
   );
 };

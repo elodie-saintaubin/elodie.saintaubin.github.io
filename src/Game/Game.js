@@ -9,6 +9,9 @@ import gameOverImage from '../images/game_over_sign.png';
 import restartButtonImage from '../images/restart_button.png';
 
 const asteroidImages = [asteroid1, asteroid2, asteroid3];
+const gameContainerWidth = 600; 
+const gameContainerHeight = 400; 
+
 
 function Game() {
   const [rocketPosition, setRocketPosition] = useState({ x: 0, y: 0 });
@@ -28,16 +31,18 @@ function Game() {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
       const { innerHeight, innerWidth } = window;
-
-      const maxY = innerHeight - 300;
+    
+      const maxY = innerHeight - gameContainerHeight;
       const minY = 0;
-      const maxX = innerWidth - 100;
-
-      const newY = Math.max(maxY, Math.min(clientY, minY));
-      const newX = Math.min(clientX, maxX);
-
+      const maxX = innerWidth - gameContainerWidth;
+      const minX = 0;
+    
+      const newY = Math.max(maxY, Math.min(clientY - gameContainerHeight / 2, minY));
+      const newX = Math.max(minX, Math.min(clientX - gameContainerWidth / 2, maxX));
+    
       setRocketPosition({ x: newX, y: newY });
     };
+    
 
     window.addEventListener('mousemove', handleMouseMove);
 
@@ -46,15 +51,17 @@ function Game() {
     };
   }, []);
 
+
   useEffect(() => {
     const generateRandomPosition = () => {
-      const { innerWidth } = window;
+      const gameContainer = document.querySelector('.game-container');
+      const gameContainerWidth = gameContainer.offsetWidth;
       const minX = 0;
-      const maxX = innerWidth - 100;
+      const maxX = gameContainerWidth - 100;
       const minY = -100;
-
+  
       const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
-
+  
       return { x: randomX, y: minY };
     };
 
@@ -62,7 +69,7 @@ function Game() {
       const newObstacle = {
         ...generateRandomPosition(),
         image: asteroidImages[Math.floor(Math.random() * asteroidImages.length)],
-        passed: false, // Added missing 'passed' property
+        passed: false, 
       };
 
       setObstacles((prevObstacles) => {
