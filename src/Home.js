@@ -112,7 +112,7 @@ function Home() {
     <>
       <Navbar />
       <div className='central'>
-        <div className="long-rectangle message-box" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', position: 'relative', color: "black", padding:"10px" }}>
+        <div className="long-rectangle message-box" style={{ backgroundColor: '#f2f2f2', padding: '15px', borderRadius: '20px', width: '300px', display:'flex', justifyContent: 'center', color: "black", padding:"10px" }}>
         <p>Bienvenue sur le site météo de l'espace !  <br/> <br/> 
           Ce site offre une exploration approfondie des planètes, des étoiles et des autres corps célestes qui composent notre système solaire.<br/><br/>  
           Découvrez des informations captivantes sur chaque planète, de la plus grande Jupiter à la mystérieuse Neptune. <br/>
@@ -156,6 +156,12 @@ function Home() {
             /* Handle on hover */
             ::-webkit-scrollbar-thumb:hover {
               background: #9b4520; 
+
+              @media screen and (max-width: 500px) {
+                
+
+              }
+
             }`}
           </style>
       </div>

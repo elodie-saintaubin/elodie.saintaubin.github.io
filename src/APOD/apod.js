@@ -31,10 +31,10 @@ const Apod = () => {
 
   return (
     <div>
-      <Navbar />
+      {isFullscreen ? '' : <Navbar />}      
       {apodData ? (
         <div className="container">
-          <h2>Image of the day from the NASA website: {apodData.title}</h2>
+          <h2 className={`texteCentre ${isFullscreen ? 'text-en-fullscreen' : ''}`} >Image of the day from the NASA website: {apodData.title}</h2>
           <div className={`content ${isFullscreen ? 'fullscreen' : ''}`}>
             <div className="image-container">
               <img
@@ -55,17 +55,12 @@ const Apod = () => {
 
       <style>
         {`
-        .container {
-          /* Styles for desktop */
-          margin: 0 auto;
-          max-width: 800px;
-        }
 
         .apod-pic {
           width: 500px;
           height: 500px;
           margin-right: 50px;
-          margin-top: 25px;
+          margin-bottom: 25px;
         }
 
         .fullscreen {
@@ -91,8 +86,21 @@ const Apod = () => {
           display: none;
         }
 
+        .content {
+          display: flex;
+        }
+
+        .content > * {
+          width:45%;
+        }
+
         @media (max-width: 600px) {
           /* Styles for mobile */
+
+          .texteCentre{
+            text-align: 'center';
+          }
+
           .container {
             max-width: 400px;
           }
@@ -111,12 +119,17 @@ const Apod = () => {
             width: 100%;
             height: auto;
             margin: 0 auto;
-            margin-top: 50%;
+            margin-top: 70%;
           }
 
           .text-en-fullscreen {
             display: none;
           }
+
+          p {
+            text-align: center;
+          }
+
         }
       `}
       </style>
