@@ -1,17 +1,5 @@
 
 @media screen and (max-width: 500px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
 
-.apod-pic {
-  width: 200px;
-  height: 200px;
-}
 
-    p {
-        width: 80%;
-    }
 }

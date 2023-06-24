@@ -34,7 +34,7 @@ const Apod = () => {
       {isFullscreen ? '' : <Navbar />}      
       {apodData ? (
         <div className="container">
-          <h2 className={`texteCentre ${isFullscreen ? 'text-en-fullscreen' : ''}`} >Image of the day from the NASA website: {apodData.title}</h2>
+          <h2 className={`texteCentre ${isFullscreen ? 'text-en-fullscreen' : ''}`} > {apodData.title}</h2>
           <div className={`content ${isFullscreen ? 'fullscreen' : ''}`}>
             <div className="image-container">
               <img
@@ -44,8 +44,8 @@ const Apod = () => {
                 onClick={toggleFullscreen}
               />
             </div>
-            <div>
-              <p className={`${isFullscreen ? 'text-en-fullscreen' : ''}`}>{apodData.explanation}</p>
+            <div className='text-expl'>
+              <p className={` ${isFullscreen ? 'text-en-fullscreen' : ''}`}>{apodData.explanation}</p>
             </div>
           </div>
         </div>
@@ -90,45 +90,43 @@ const Apod = () => {
           display: flex;
         }
 
-        .content > * {
-          width:45%;
-        }
-
         @media (max-width: 600px) {
-          /* Styles for mobile */
-
-          .texteCentre{
-            text-align: 'center';
-          }
-
-          .container {
-            max-width: 400px;
-          }
 
           .apod-pic {
-            width: 200px;
-            height: 200px;
-            margin-right: 0;
+            width: 300px;
+            height: 300px;
+            margin-left: 25px;
             margin-bottom: 10px;
-   
           }
 
           .fullscreen .apod-pic {
             display: flex;
-            justify-content: center;
             width: 100%;
             height: auto;
             margin: 0 auto;
-            margin-top: 70%;
+            margin-top: 50%;
+          }
+
+          h2{
+            text-align: center;        
           }
 
           .text-en-fullscreen {
             display: none;
           }
 
-          p {
-            text-align: center;
+          .text-expl {
+            margin-top: 30px;
+            margin-left: 5px;
+            width: 100%;
+            text-align: justify;            
           }
+
+          .content {
+            display: flex;
+            flex-direction: column;
+          }
+  
 
         }
       `}
