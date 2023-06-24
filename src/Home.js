@@ -122,7 +122,7 @@ function Home() {
         {showText && (
         <div className="centered-text">
           <h2 className="white-text slow-appear">
-            {solarSystemInfo[randomIndex]}
+            "{solarSystemInfo[randomIndex]}"
           </h2>
           <h3 className="titre-meteo">Météo du {formattedDate}</h3>
           <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
