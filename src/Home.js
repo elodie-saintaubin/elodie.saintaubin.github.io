@@ -8,6 +8,7 @@ import fire from "./images/fire_weather.gif"
 import normal from "./images/normal_weather.gif"
 import ice from "./images/ice_weather.gif"
 import tornado from "./images/tornado_weather.gif"
+
 const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString();
 
@@ -26,49 +27,24 @@ const staticPlanetData = [
 
 
 function Home() {
+
   const [showText, setShowText] = useState(false);
   const [randomIndex, setRandomIndex] = useState(0);
   const [currentInfoIndex, setCurrentInfoIndex] = useState(0);
+  const [facts, setFacts] = useState([]);
 
-
+  //get facts of db
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Générer un nouvel index aléatoire différent de l'index actuel
-      let newIndex;
-      do {
-        newIndex = Math.floor(Math.random() * solarSystemInfo.length);
-      } while (newIndex === currentInfoIndex);
+    axios.get("http://localhost:3001/api/get").then((response) => {
+      const extractedFacts = response.data.map((fact) => fact.facts_lib);
+      setFacts(extractedFacts);
+      setShowText(true); 
+      const newIndex = Math.floor(Math.random() * extractedFacts.length);
+      setRandomIndex(newIndex);
+    });
+  }, []);
+  
 
-      setCurrentInfoIndex(newIndex);
-    }, 1000); // Changer toutes les 10 secondes
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [currentInfoIndex]);
-
-  const solarSystemInfo = [
-    "Jupiter est la plus grande planète du système solaire, tandis que Mercure est la plus petite.",
-    "Vénus est la planète la plus chaude du système solaire, avec une température de surface suffisante pour faire fondre du plomb.",
-    "Les jours sur Vénus sont plus longs que ses années. Il faut environ 243 jours terrestres pour effectuer une rotation complète sur son axe, tandis qu'une année sur Vénus équivaut à environ 225 jours terrestres.",
-    "La sonde Voyager 1, lancée en 1977, est le premier objet fabriqué par l'homme à quitter le système solaire et à entrer dans l'espace interstellaire.",
-    "Uranus est la seule planète du système solaire à tourner sur un axe presque horizontal, donnant l'impression qu'elle roule sur le plan orbital.",
-    "La plus grande tempête connue dans le système solaire est la Grande Tache Rouge de Jupiter, une tempête qui dure depuis au moins 400 ans.",
-    "La lune de Saturne, Encelade, éjecte de l'eau sous forme de geysers dans l'espace, ce qui en fait l'un des endroits potentiels pour la recherche de vie extraterrestre.",
-    "La planète naine Pluton a été découverte en 1930, mais a été rétrogradée au statut de planète naine en 2006, suscitant un débat sur la définition d'une planète.",
-    "Jupiter est la plus grande planète du système solaire et possède plus de 79 lunes connues, dont les quatre plus grandes sont appelées les lunes galiléennes : Io, Europe, Ganymède et Callisto.",
-    "La ceinture d'astéroïdes, située entre les orbites de Mars et Jupiter, est une région remplie de milliers de petits corps rocheux appelés astéroïdes.",
-    "La comète la plus célèbre du système solaire est probablement la comète de Halley, qui revient près de la Terre tous les 76 ans.",
-    "Neptune est la huitième et dernière planète du système solaire, et a été découverte en 1846 après des calculs mathématiques basés sur les perturbations gravitationnelles d'Uranus.",
-    "Le Soleil représente plus de 99 % de la masse totale du système solaire et contient environ 74 % de l'hydrogène de tout le système solaire.",
-    "Jupiter agit comme un véritable 'aspirateur spatial' en déviant les astéroïdes et les comètes potentiellement dangereux.",
-    "Les nuages de Saturne ont une couleur jaune orangé en raison de la présence d'hydrocarbure polycyclique aromatique (HPA) dans son atmosphère.",
-    "Uranus a un axe de rotation incliné de près de 98 degrés, lui donnant l'apparence de tourner pratiquement sur le côté.",
-    "Neptune possède les vents les plus rapides de tout le système solaire, atteignant des vitesses supérieures à 2 100 kilomètres par heure.",
-    "La ceinture d'astéroïdes, située entre Mars et Jupiter, est une région où se trouvent des milliers d'astéroïdes.",
-    "Pluton a été reclassifiée en tant que 'planète naine' en 2006 et est membre de la ceinture de Kuiper, au-delà de l'orbite de Neptune.",
-    
-  ];
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = 'jo2eQTUD2Iok01fKLszYYQ==F17j9jnwS7F8jpvR';
@@ -91,23 +67,22 @@ function Home() {
 
     fetchData();
 
-
-    
     const generateRandomIndex = () => {
-      const newIndex = Math.floor(Math.random() * solarSystemInfo.length);
+      const newIndex = Math.floor(Math.random() * facts.length);
       setRandomIndex(newIndex);
     };
-
+  
     generateRandomIndex();
+  
+    const interval = setInterval(() => {
+      generateRandomIndex();
+    }, 10000);
+  
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
-
-  useEffect(() => {
-    // Display the text after a delay of 2 seconds (2000 milliseconds)
-    setTimeout(() => {
-      setShowText(true);
-    }, 2000);
-  }, []);
-
+  
   return (
     <>
       <Navbar />
@@ -121,9 +96,9 @@ function Home() {
 
         {showText && (
         <div className="centered-text">
-          <h2 className="white-text slow-appear">
-            "{solarSystemInfo[randomIndex]}"
-          </h2>
+        <h2 className="white-text slow-appear">
+          "{facts[randomIndex]}" 
+        </h2>
           <h3 className="titre-meteo">Météo du {formattedDate}</h3>
           <div className="opaque-rectangle" style={{ overflowY: 'scroll', maxHeight: '200px' }}>
           {staticPlanetData.map((planet) => (
