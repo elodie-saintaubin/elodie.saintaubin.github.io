@@ -30,27 +30,28 @@ function Game() {
   useEffect(() => {
     const handleMouseMove = (event) => {
       const { clientX, clientY } = event;
-      const { innerHeight, innerWidth } = window;
-    
-      const maxY = innerHeight - gameContainerHeight;
-      const minY = 0;
-      const maxX = innerWidth - gameContainerWidth;
+      const { innerWidth, innerHeight } = window;
+      const containerWidth = 600;
+      const containerHeight = 600;
+  
+      const maxX = innerWidth - containerWidth;
+      const maxY = innerHeight - containerHeight;
       const minX = 0;
-    
-      const newY = Math.max(maxY, Math.min(clientY - gameContainerHeight / 2, minY));
-      const newX = Math.max(minX, Math.min(clientX - gameContainerWidth / 2, maxX));
-    
+      const minY = 0;
+  
+      const newX = Math.max(minX, Math.min(clientX - containerWidth / 2, maxX));
+      const newY = Math.max(minY, Math.min(clientY - containerHeight / 2, maxY));
+  
       setRocketPosition({ x: newX, y: newY });
     };
-    
-
+  
     window.addEventListener('mousemove', handleMouseMove);
-
+  
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
+  
 
   useEffect(() => {
     const generateRandomPosition = () => {

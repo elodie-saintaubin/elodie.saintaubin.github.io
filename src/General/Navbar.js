@@ -68,7 +68,7 @@ function Navbar() {
                 Picture of the day
               </Link>
             </li>
-            <li className="nav-link">
+            <li id="le-dernier" className="nav-link">
               <Link style={{color:"white", textDecoration:"none"}} to="/game" onClick={toggleMenu}>
                 A little game ?
               </Link>

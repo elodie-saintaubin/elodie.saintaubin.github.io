@@ -154,7 +154,7 @@ body {
   .message-box,
   .long-rectangle {
     width: 100%;
-    margin: 20px;
+    margin: 10% 10%;
     padding: 10px;
     height: max-content;
   }

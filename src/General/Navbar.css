@@ -115,7 +115,7 @@
   }
 
   .navbar-icon {
-    margin-left: 10px;
+    margin-left: 2%;
   }
 
   .navbar ul {
@@ -128,7 +128,7 @@
   .hamburger {
     display: block;
     cursor: pointer;
-    margin-right: 60px;
+    margin-right: 20%;
   }
 
   .hamburger .bar {
@@ -160,7 +160,7 @@
     display: block;
     background-color: #151616;
     transition: transform 0.3s ease;
-    width: 112%;
+    width: 100%;
     border: 1px solid rgb(95, 93, 93);
     margin: 0;
   }
@@ -184,6 +184,14 @@
 
   .nav-menu {
     padding: 0;
+  }
+
+  .nav-link{
+    border-bottom: 1px solid grey;
+  }
+
+  #le-dernier {
+    border-bottom: 1px solid transparent;
   }
 
 }
