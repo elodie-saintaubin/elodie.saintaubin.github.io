@@ -1,5 +1,7 @@
 
 @media screen and (max-width: 500px) {
-
+    #msg-loading {
+        margin: 10px 10px;
+    }
 
 }

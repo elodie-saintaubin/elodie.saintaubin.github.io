@@ -50,7 +50,7 @@ const Apod = () => {
           </div>
         </div>
       ) : (
-        <p>Loading APOD data...</p>
+        <p id="msg-loading">Loading APOD data...</p>
       )}
 
       <style>
